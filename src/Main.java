@@ -1,28 +1,31 @@
-import es.uah.matcomp.mp.e1.ejerciciosclases.e2.Customer;
-import es.uah.matcomp.mp.e1.ejerciciosclases.e2.Invoice;
+import es.uah.matcomp.mp.e1.ejerciciosclases.e3.Account;
+import es.uah.matcomp.mp.e1.ejerciciosclases.e3.Customer;
 
+/**
+ * Clase principal para probar las funcionalidades de Customer y Account
+ */
 public class Main {
     public static void main(String[] args) {
-        // Test Customer class
-        Customer c1 = new Customer(88, "Tan Ah Teck", 10);
-        System.out.println(c1); // Customer's toString()
-        c1.setDiscount(8);
-        System.out.println(c1);
-        System.out.println("id is: " + c1.getId());
-        System.out.println("name is: " + c1.getName());
-        System.out.println("discount is: " + c1.getDiscount());
-        // Test Invoice class
-        Invoice inv1 = new Invoice(101, c1, 888.8);
-        System.out.println(inv1);
-        inv1.setAmount(999.9);
-        System.out.println(inv1);
-        System.out.println("id is: " + inv1.getId());
-        System.out.println("customer is: " + inv1.getCustomer()); // Customer's toString()
-        System.out.println("amount is: " + inv1.getAmount());
-        System.out.println("customer's id is: " + inv1.getCustomerId());
-        System.out.println("customer's name is: " + inv1.getCustomerName());
-        System.out.println("customer's discount is: " + inv1.getCustomerDiscount());
-        System.out.printf("amount after discount is: %.2f%n", inv1.getAmountAfterDiscount());
+        // Crear un cliente
+        Customer customer1 = new Customer(1, "Juan Perez", 'm');
+
+        // Crear una cuenta con saldo inicial
+        Account account1 = new Account(1001, customer1, 500.0);
+
+        // Imprimir la cuenta inicial
+        System.out.println(account1);
+
+        // Depositar dinero
+        account1.deposit(200.0);
+        System.out.println("después de depositar 200$: " + account1);
+
+        // Retirar dinero dentro del saldo disponible
+        account1.withdraw(100.0);
+        System.out.println("Después de retirar 100$: " + account1);
+
+        // Intentar retirar más dinero del que hay en la cuenta
+        account1.withdraw(700.0);
+        System.out.println("Después de retirar 700.0$: " + account1);
     }
 }
 
