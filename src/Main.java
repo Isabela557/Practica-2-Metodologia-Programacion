@@ -1,31 +1,34 @@
-import es.uah.matcomp.mp.e1.ejerciciosclases.e3.Account;
-import es.uah.matcomp.mp.e1.ejerciciosclases.e3.Customer;
+import es.uah.matcomp.mp.e1.ejerciciosclases.e4.MyPoint;
+import es.uah.matcomp.mp.e1.ejerciciosclases.e4.Mypoint10;
 
-/**
- * Clase principal para probar las funcionalidades de Customer y Account
- */
 public class Main {
     public static void main(String[] args) {
-        // Crear un cliente
-        Customer customer1 = new Customer(1, "Juan Perez", 'm');
 
-        // Crear una cuenta con saldo inicial
-        Account account1 = new Account(1001, customer1, 500.0);
+// Test program to test all constructors and public methods
+MyPoint p1 = new MyPoint();
+System.out.println(p1); // Debe imprimir (0,0)
 
-        // Imprimir la cuenta inicial
-        System.out.println(account1);
+p1.setX(8); // Test setters
+p1.setY(6);
+System.out.println("x is: " + p1.getX()); // Test getters
+System.out.println("y is: " + p1.getY());
 
-        // Depositar dinero
-        account1.deposit(200.0);
-        System.out.println("después de depositar 200$: " + account1);
+p1.setXY(3, 0); // Test setXY()
+System.out.println(p1.getXY()[0]); // Test getXY()
 
-        // Retirar dinero dentro del saldo disponible
-        account1.withdraw(100.0);
-        System.out.println("Después de retirar 100$: " + account1);
+System.out.println(p1.getXY()[1]);
+System.out.println(p1);
 
-        // Intentar retirar más dinero del que hay en la cuenta
-        account1.withdraw(700.0);
-        System.out.println("Después de retirar 700.0$: " + account1);
+MyPoint p2 = new MyPoint(0, 4); // Test another constructor
+System.out.println(p2); // Debe imprimir (0,4)
+
+// Testing the overloaded methods distance()
+System.out.println(p1.distance(p2)); // Distancia entre p1 y p2
+System.out.println(p2.distance(p1)); // Distancia entre p2 y p1
+System.out.println(p1.distance(5, 6)); // Distancia a (5,6)
+System.out.println(p1.distance()); // Distancia al origen
+
     }
 }
+
 
